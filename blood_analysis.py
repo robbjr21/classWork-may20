@@ -53,5 +53,14 @@ def interface():
         elif choice == '2':
             LDL_interface()
 
+def cholesterol_interface():
+    print("Total Cholesterol Interface")
+    print("Please input the result in the following format:")
+    print("  TC=### where ### is the numeric result")
+    TC_input = input("Result: ")
+    TC_result = TC_input.split('=')
+    TC_status = TC_analysis(int(TC_result[1]))
+    print("Total Cholesterol status is {}".format(TC_status))
+
 if __name__== "__main__":
     interface()
