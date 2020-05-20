@@ -44,6 +44,7 @@ def interface():
         print("\nOptions:")
         print("1-HDL Analysis")
         print("2-LDL Analysis")
+        print("3-Total Cholesterol Analysis")
         print("9-quit")
         choice = input("Choose an option: ")
         if choice == '9':
@@ -52,6 +53,8 @@ def interface():
             HDL_interface()
         elif choice == '2':
             LDL_interface()
+        elif choice == '3':
+            cholesterol_interface()
 
 def cholesterol_interface():
     print("Total Cholesterol Interface")
@@ -61,6 +64,14 @@ def cholesterol_interface():
     TC_result = TC_input.split('=')
     TC_status = TC_analysis(int(TC_result[1]))
     print("Total Cholesterol status is {}".format(TC_status))
+
+def TC_analysis(TC_result):
+    if TC_result < 200:
+        return "Normal"
+    elif 200 <= TC_result <= 239:
+        return "Borderline High"
+    elif TC_result >= 240:
+        return "High"
 
 if __name__== "__main__":
     interface()
